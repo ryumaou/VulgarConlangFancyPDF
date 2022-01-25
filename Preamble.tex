@@ -1,0 +1,130 @@
+%------------------------
+% DOCUMENT CONFIGURATIONS
+%------------------------
+
+% 10pt font size, A4 paper, two-sided margins, book style
+\usepackage[top=3.5cm,bottom=3.5cm,left=2cm,right=2cm,columnsep=30pt]{geometry} % Set document margins and spacing
+
+% Custom colors
+\usepackage[svgnames]{xcolor}
+\definecolor{wordColor}{RGB}{29,119,168}
+\definecolor{headerLineColor}{RGB}{210,225,230}
+\definecolor{backgroundColor}{rgb}{0.68, 0.05, 0.0}
+% blue {RGB}{0,48,143}
+%\definecolor{backgroundColor}{rgb}{0.64, 0.68, 0.82}
+% blue \definecolor{backgroundColor}{RGB}{0,48,143}
+\definecolor{headerbackgroundColor}{rgb}{0.9, 0.56, 0.67}
+% pale blue {rgb}{0.64, 0.68, 0.82}
+\definecolor{headertitleColor}{rgb}{0.68, 0.05, 0.0}
+\definecolor{covertextColor}{rgb}{1.0, 1.0, 1.0}
+\definecolor{titletextColor}{rgb}{1.0, 1.0, 1.0}
+\definecolor{titlebackgroundColor}{rgb}{0.9, 0.56, 0.67}
+% {RGB}{255, 229, 204}
+
+% Custom fonts
+\usepackage[utf8]{inputenc} % For unicode characters
+\usepackage[T1]{fontenc} % For unicode characters
+\usepackage{fontspec} % For imported font files
+\setmainfont{NotoSans-Regular.ttf} % Main font
+\newfontfamily{\conWord}[Color=wordColor]{NotoSans-Bold.ttf} % Font style for conlang word (cw)
+\newfontfamily{\engWord}[Color=wordColor]{NotoSans-Bold.ttf} % Font style for English word (ew)
+\newfontfamily{\engTrans}{CharisSILR.ttf} % Font style for English translation (et)
+\newfontfamily{\conTrans}{CharisSILR.ttf} % Font style for conlang translation (ct)
+\newfontfamily{\ipa}{CharisSILR.ttf} % IPA pronunciation font
+\newfontfamily{\italic}{CharisSILI.ttf} % Part of Speech font
+\newfontfamily{\bold}{NotoSans-Bold.ttf} % Black bold Noto
+
+% Fancy header and footer
+\usepackage{fancyhdr}
+\fancyhead[L]{\textnormal{\color{wordColor}\rightmark}} % Top left header
+\fancyhead[R]{\textnormal{\color{wordColor}\leftmark}} % Top right header
+\renewcommand{\headrulewidth}{2.4pt} % Width of line under the header
+\renewcommand{\headrule}{\hbox to\headwidth{\color{headerLineColor}\leaders\hrule height \headrulewidth\hfill}} % Color of header line
+\renewcommand{\footrulewidth}{0pt} % Set footer line to 0pt
+\renewcommand{\footrule}{\hbox to\headwidth{\color{headerLineColor}\leaders\hrule height \footrulewidth\hfill}} % Color of footer line
+\fancyfoot[C]{{\textsf{\color{wordColor}\thepage}}} % Page number (\thepage), color and centered with [C]
+\pagestyle{fancy} % Use the custom headers and footers throughout the document
+
+% Remove automatic paragraph indenting
+\usepackage{changepage}
+\setlength{\parindent}{0cm}
+\newcommand{\forceindent}{\leavevmode{\parindent=0.5em\indent}} % Use custom command \forceindent to indent text
+
+% Conlang entry (ce) and English entry (ee) commands have [3] sections: #1 is the bold word, #2 is the IPA pronunciation, #3 is the translation information. markboth{}{} prints the first word on the page in the top left header and the last word in the top right. {adjustwidth} indents the translation under the word and IPA by 0.2cm
+\newcommand{\con}[3]{\conWord{#1}\markboth{#1}{#1}\ \ipa{#2}\engTrans{#3}}
+\newcommand{\eng}[3]{\engWord{#1}\markboth{#1}{#1}\ \ipa{#2}\conTrans{#3}}
+\newcommand{\pos}[2]{\begin{adjustwidth}{0.2cm}{}{\italic#1} {#2}\end{adjustwidth}}
+
+% Heading styling
+\usepackage[explicit]{titlesec}
+\usepackage{tikz}
+
+% Chapter styling
+\newcommand*\chapterlabel{}
+\titleformat{\chapter}
+  {\gdef\chapterlabel{}
+   \normalfont\sffamily\Huge\bfseries\scshape}
+  {\gdef\chapterlabel{}}{0pt}
+  {\begin{tikzpicture}[remember picture,overlay]
+    \node[yshift=-3cm] at (current page.north west)
+      {\begin{tikzpicture}[remember picture, overlay]
+        \draw[fill=headerbackgroundColor] (0,0) rectangle
+          (\paperwidth,3cm);
+        \node[anchor=east,xshift=.9\paperwidth,rectangle,
+              rounded corners=20pt,inner sep=11pt,
+              fill=headertitleColor]
+              {\color{titletextColor}\chapterlabel#1};
+       \end{tikzpicture}
+      };
+   \end{tikzpicture}
+  }
+\titlespacing*{\chapter}{0pt}{10pt}{-20pt}
+  
+% Section styling
+\newcommand*\sectionlabel{}
+\titleformat{name=\section,numberless}
+  {\normalfont\Huge\bfseries\filcenter}
+  {\thesectionlabel#1}
+  {1em}
+  {}
+  [{\titlerule[0.8pt]}]
+
+% Section styling
+
+\titleformat{name=\subsection,numberless}
+  {\b\Large}
+  {}
+  {.5em}
+  {}
+% Other misc. packages
+\usepackage{multicol} % For multiple columns
+\usepackage{caption} % For table captions
+\usepackage{microtype} % Improves spacing
+\usepackage{needspace} % For page breaking
+\usepackage{titling}
+
+% Publisher logo
+\usepackage{graphicx}
+\usepackage{marvosym}
+\newcommand*{\titlelogo}{Vulgarlang.com~~\fbox{$\mathcal{VL}$}}
+\newcommand*{\coverlogo}{A Many Worlds Project~~\Huge{\Mundus}}
+
+%Stops dictionary entries breaking over columns
+\makeatletter
+\newcommand*\nobreaklist{\@beginparpenalty=\@M}
+\makeatother
+\nobreaklist
+
+
+\usepackage{eso-pic}
+\newcommand\BackgroundPic{
+\put(0,0){%
+\parbox[b][\textheight]{\textwidth}{%
+\vfill
+\centering
+\vspace{50em}
+{\setlength{\fboxsep}{5pt}%
+ \fcolorbox{grey}{white}{%
+ \includegraphics[width=\textwidth,height=0.65\textheight]{cover.jpg}}}%
+\vfill
+}}}

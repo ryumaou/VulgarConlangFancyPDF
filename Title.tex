@@ -1,0 +1,25 @@
+\begin{titlepage} % Suppresses displaying the page number on the title page and the subsequent page counts as page 1
+	\pagecolor{titlebackgroundColor} %Background color of page
+	\raggedleft % Right align the title page
+	
+	\color{black} \rule{1pt}{\textheight} % Vertical line
+	\hspace{0.05\textwidth} % Whitespace between the vertical line and title page text
+	\parbox[b]{0.75\textwidth}{ % Paragraph box for holding the title page text, adjust the width to move the title page left or right on the page
+		
+		{\Huge\bfseries \color{black}\thetitle}\\[2\baselineskip] % Title
+		{\color{black}\large\textit{\subtitle}}\\[4\baselineskip] % Subtitle or further description
+		{\color{black}\Large\textsc{\copyright~\the\year~~ \theauthor}} % Author name
+		\\[2\baselineskip]\\All rights reserved
+		
+		\vspace{0.5\textheight} % Whitespace between the title block and the publisher
+		
+		{\noindent \color{black}{Produced with output and code from }\titlelogo}\\[\baselineskip] % Publisher and logo
+	}
+
+\end{titlepage}
+
+\begingroup
+\pagecolor{white} % Make subsequent pages white
+\let\cleardoublepage\clearpage % Get rid of blank page after chapter headings
+
+\tableofcontents % Insert table of contents
