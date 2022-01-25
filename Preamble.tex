@@ -17,7 +17,8 @@
 % pale blue {rgb}{0.64, 0.68, 0.82}
 \definecolor{headertitleColor}{rgb}{0.68, 0.05, 0.0}
 \definecolor{covertextColor}{rgb}{1.0, 1.0, 1.0}
-\definecolor{titletextColor}{rgb}{1.0, 1.0, 1.0}
+\definecolor{titletextColor}{RGB}{0, 0, 0}
+\definecolor{headertitletextColor}{RGB}{255, 255, 255}
 \definecolor{titlebackgroundColor}{rgb}{0.9, 0.56, 0.67}
 % {RGB}{255, 229, 204}
 
@@ -128,3 +129,12 @@
  \includegraphics[width=\textwidth,height=0.65\textheight]{cover.jpg}}}%
 \vfill
 }}}
+
+% This bit makes the table of contents clickable with links in the PDF
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+    colorlinks=false, %set true if you want colored links
+    linktoc=all,     %set to all if you want both sections and subsections linked
+}
+
+
