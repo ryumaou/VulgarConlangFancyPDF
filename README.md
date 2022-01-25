@@ -7,10 +7,10 @@ First, and possibly the most important point, this template was developed and me
 Second, if you have any problems with the layout, make sure that you've selected XeLaTeX as the compiler and 2020 for the TeX Live Version.  Having the wrong settings here will completely mangle the fancy cover page.
 
 Third, you need to add some things to the output from Vulgar Conlang to include the additional chapters\sections:
-To add the fancy front cover:  \input{Cover}  NOTE: This must come before the Title page!
-Automatically added to Vulgar Conlang TeX output:  \input{Title} NOTE: This MUST be included for the rest of the file to generate correctly!
-To include a Grammar section:  \input{Grammar}
-To include a Common Phrases section;   \input{Phrases}
+<br><b>To add the fancy front cover:</b>  \input{Cover}  NOTE: This must come before the Title page!
+<br><b>Automatically added to Vulgar Conlang TeX output:</b>  \input{Title} NOTE: This MUST be included for the rest of the file to generate correctly!
+<br><b>To include a Grammar section:</b>  \input{Grammar}
+<br><b>To include a Common Phrases section:</b>   \input{Phrases}
 
 Fourth, all the colors are defined in the Preamble.tex and can be updated there.  Hopefully, the labels will make it clear which colors will change which sections of the final PDF.
 
