@@ -9,7 +9,7 @@ Second, if you have any problems with the layout, make sure that you've selected
 Third, you need to add some things to the output from Vulgar Conlang to include the additional chapters\sections:
 To add the fancy front cover:  \input{Cover}  NOTE: This must come before the Title page!
 Automatically added to Vulgar Conlang TeX output:  \input{Title} NOTE: This MUST be included for the rest of the file to generate correctly!
-To include a Grammar section:  \input{Grammar} 
+To include a Grammar section:  \input{Grammar}
 To include a Common Phrases section;   \input{Phrases}
 
 Fourth, all the colors are defined in the Preamble.tex and can be updated there.  Hopefully, the labels will make it clear which colors will change which sections of the final PDF.
