@@ -7,20 +7,35 @@
 
 % Custom colors
 \usepackage[svgnames]{xcolor}
+% word color is an aqua blue
 \definecolor{wordColor}{RGB}{29,119,168}
 \definecolor{headerLineColor}{RGB}{210,225,230}
+% cover page background color is red
+% also, this is used as the color for the translucent background to highlight the titles on the cover
 \definecolor{backgroundColor}{rgb}{0.68, 0.05, 0.0}
-% blue {RGB}{0,48,143}
-%\definecolor{backgroundColor}{rgb}{0.64, 0.68, 0.82}
-% blue \definecolor{backgroundColor}{RGB}{0,48,143}
+% colored bar at the top of chapters is pale red
 \definecolor{headerbackgroundColor}{rgb}{0.9, 0.56, 0.67}
-% pale blue {rgb}{0.64, 0.68, 0.82}
+% chapter title backround color is darker red
 \definecolor{headertitleColor}{rgb}{0.68, 0.05, 0.0}
-\definecolor{covertextColor}{rgb}{1.0, 1.0, 1.0}
-\definecolor{titletextColor}{RGB}{0, 0, 0}
+% chapter title text is white
 \definecolor{headertitletextColor}{RGB}{255, 255, 255}
+% titles on the cover are white
+\definecolor{covertextColor}{rgb}{1.0, 1.0, 1.0}
+% But titles on the title page are black
+\definecolor{titletextColor}{RGB}{0, 0, 0}
+% title page background color is pale red
 \definecolor{titlebackgroundColor}{rgb}{0.9, 0.56, 0.67}
-% {RGB}{255, 229, 204}
+% Some other colors for quick reference
+% an easy RGB color picker is at https://www.rapidtables.com/web/color/RGB_Color.html
+% blue {RGB}{0,0,204}
+% pale blue {RGB}{153, 153, 255}
+% dark green {RGB}{0, 153,0}
+% pale green {RGB}{102,255,102}
+% dark purple {RGB}{76,0,153}
+% light purple {RGB}{178,102,255}
+% Very Peri - 2022 Pantone color of the year {RGB}{104,104,171}
+% dark orange {RGB}{204,102,0}
+% light orange {RGB}{255,204,1530}
 
 % Custom fonts
 \usepackage[utf8]{inputenc} % For unicode characters
@@ -90,7 +105,7 @@
   {}
   [{\titlerule[0.8pt]}]
 
-% Section styling
+% Subsection styling
 
 \titleformat{name=\subsection,numberless}
   {\b\Large}
@@ -108,6 +123,7 @@
 \usepackage{graphicx}
 \usepackage{marvosym}
 \newcommand*{\titlelogo}{Vulgarlang.com~~\fbox{$\mathcal{VL}$}}
+% cover logo - the world icon is from the marvosym wingdings font
 \newcommand*{\coverlogo}{A Many Worlds Project~~\Huge{\Mundus}}
 
 %Stops dictionary entries breaking over columns
@@ -116,25 +132,30 @@
 \makeatother
 \nobreaklist
 
-
+% commands for adding a picture to the cover
 \usepackage{eso-pic}
-\newcommand\BackgroundPic{
-\put(0,0){%
-\parbox[b][\textheight]{\textwidth}{%
-\vfill
-\centering
-\vspace{50em}
-{\setlength{\fboxsep}{5pt}%
- \fcolorbox{grey}{white}{%
- \includegraphics[width=\textwidth,height=0.65\textheight]{cover.jpg}}}%
-\vfill
-}}}
+% this is the full page cover picture
+\newcommand\BackgroundPicFull{
+\AddToShipoutPicture{\put(0,0){\includegraphics[width=\paperwidth,height=\paperheight]{cover.jpg}}}
+}
 
-% This bit makes the table of contents clickable with links in the PDF
+% this is the small, square inset picture
+\newcommand\BackgroundPicSmall{
+ \put(0,0){\parbox[b][\textheight]{\textwidth}{%
+ \vfill
+ \centering
+ \vspace{50em}
+ {\setlength{\fboxsep}{5pt}%
+  \fcolorbox{grey}{white}{%
+ \includegraphics[width=\textwidth,height=0.65\textheight]{cover.jpg}}}%
+ \vfill
+ }}}
+
+% this makes the table of contents linked to the rest of the PDF
 \usepackage[hidelinks]{hyperref}
 \hypersetup{
     colorlinks=false, %set true if you want colored links
     linktoc=all,     %set to all if you want both sections and subsections linked
 }
 
-
+\makeatletter
