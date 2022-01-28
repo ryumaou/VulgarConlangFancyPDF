@@ -1,0 +1,31 @@
+
+\begin{titlepage} % Suppresses displaying the page number on the title page and the subsequent page counts as page 1
+{\BackgroundPicFull}
+	\pagecolor{backgroundColor} %Background color of page
+	% \color{headerLineColor} \rule{1pt}{\textheight} % Vertical line
+	\hspace{0.05\textwidth} % Whitespace between the vertical line and title page text
+	%\parbox[b]
+	\pgfsetfillopacity{0.3}
+	\colorbox{backgroundColor}
+	{
+	\begin{minipage}{1.1\textwidth}{ % Paragraph box for holding the title page text, adjust the width to move the title page left or right on the page
+	\raggedright % Right align the title page
+        \pgfsetfillopacity{1}
+		{\fontsize{70}{80}\selectfont \bfseries \color{covertextColor}\textbf{\thetitle}}\\[\baselineskip] % Title
+		{\Large\color{covertextColor}\textit{\textbf{\subtitle}}}\\[4\baselineskip] % Subtitle or further description
+		{\Huge\color{covertextColor}\textsc{\textbf{by \theauthor}}} % Author name
+		
+		\vspace{0.2\textheight} % Whitespace between the title block and the publisher
+		
+		\raggedleft
+		{\noindent \large\color{covertextColor} \hspace{0.095cm}\coverlogo\hspace{1.95cm}}\\[\baselineskip] % Publisher and logo
+
+	}
+	\end{minipage}
+	}
+\end{titlepage}
+\let\cleardoublepage\clearpage % Get rid of blank page after chapter headings
+\thispagestyle{empty}
+\cleardoublepage
+\phantomsection
+\ClearShipoutPicture
