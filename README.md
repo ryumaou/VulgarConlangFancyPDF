@@ -9,7 +9,7 @@ Second, if you have any problems with the layout, make sure that you've selected
 Third, you need to add some things to the output from Vulgar Conlang to include the additional chapters\sections:
 <br><b>To add the fancy front cover:</b>  \input{Cover}  NOTE: This must come before the Title page!
 <br>NEW! Change that line to <b>\input{CoverFullCenter}</b> to add a cover with a <i>full-page graphic and centered titles on a highlighted box</i>
-<br>NEW! Change that line to <b>\input{CoverFullRight}>/b> to add a cover with a <i>full-page graphic and titles on a highlighted box shifted to the right</i>
+<br>NEW! Change that line to <b>\input{CoverFullRight}</b> to add a cover with a <i>full-page graphic and titles on a highlighted box shifted to the right</i>
 <br><b>Automatically added to Vulgar Conlang TeX output:</b>  \input{Title} NOTE: This MUST be included for the rest of the file to generate correctly!
 <br><b>To include an Introduction section:</b>  \input{Intro}
 <br><b>To include a Grammar section:</b>  \input{Grammar}
